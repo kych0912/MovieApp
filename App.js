@@ -1,22 +1,25 @@
-import React,{useState} from 'react';
-import { Text } from "react-native";
-import AppLoading from "expo-app-loading";
+import AppLoading from 'expo-app-loading';
+import React from 'react';
 import * as Font from 'expo-font';
-import {Ionicons} from "@expo/vector-icons";
+import { Text } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useAssets } from 'expo-asset';
+import {
+  NavigationContainer
+} from "@react-navigation/native";
+import Tabs from "./navigation/Tabs";
 
 export default function App() {
-  const [assets, error] = useAssets([require('./Image1.png')]);
-  const [ready, setReady] = useState(false);
-  const [loaded] = Font.useFonts(Ionicons.font);
-
-  console.log(assets);
-  console.log(loaded);
-
-  if (!assets||!loaded) {
+  const [assets] = useAssets([require("./assets/crypto.png")]);
+  const [fonts] = Font.useFonts(Ionicons.font);
+  if (!assets || !fonts) {
     return (
-      <AppLoading/>
+      <AppLoading />
     );
   }
-  return <Text>We are done loading!</Text>;
+  return (
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
+  );
 }
