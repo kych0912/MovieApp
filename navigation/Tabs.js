@@ -32,6 +32,7 @@ const Tabs = () => {
       paddingBottom:5,
     }
     }}>
+      
       <Tab.Screen name="Movies" component={Movies}
       options={{
         headerShown : false,
