@@ -27,11 +27,11 @@ const ScreenTwo = ({ navigation: { navigate } }) =>{
         </TouchableOpacity>
     ); 
 }
-const ScreenThree = ({ navigation: { setOptions } }) =>{
+const ScreenThree = ({ navigation: { navigate } }) =>{
 
     return(
         <TouchableOpacity onPress = {() =>{
-            setOptions({title : "Hi"});
+            navigate("Tabs",{screen : "Search"});
         }}
         >
             <Text>Hello2</Text>
